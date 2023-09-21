@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "packageNames": ["*"],
+      "automerge": false
+    }
+  ],
+  "docker": {
+    "enabled": true
+  }
+}
