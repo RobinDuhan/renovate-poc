@@ -16,4 +16,5 @@ RUN python3 --version && \
     node --version && \
     curl --version
 
+LABEL python_version="3.4.0"
 # Set up your application here...
