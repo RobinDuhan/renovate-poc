@@ -3,11 +3,35 @@
   "extends": ["config:base"],
   "packageRules": [
     {
+      "datasources": [
+        "repology"
+      ],
+      "packagePatterns": [
+        "^ubuntu_22_04/"
+      ],
+      "separateMajorMinor": false,
+      "groupName": "ubuntu packages",
+      "groupSlug": "ubuntu"
+    },
+    {
       "packageNames": ["*"],
       "automerge": false
     }
+  ]
+}
   ],
   "docker": {
     "enabled": true
-  }
+  },
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "(^|/)Dockerfile$"
+      ],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=\"?(?<currentValue>.*?)\"?\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
+    }
+  ]
 }
