@@ -12,7 +12,7 @@ RUN apt-get update && \
     curl=7.58.0-2ubuntu3.13
 
 # renovate: datasource=repology depName=ubuntu_22_04/python3-defaults versioning=loose
-ENV PYTHON3_VERSION="3.4.0"
+ENV PYTHON3_VERSION="3.10.6-1~22.04"
 
 RUN apt-get update -y && \
     apt-get install --no-install-recommends -y python3=${PYTHON3_VERSION}* && \
