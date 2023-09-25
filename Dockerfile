@@ -11,10 +11,12 @@ RUN apt-get update && \
     nodejs=8.10.0~dfsg-2ubuntu0.4 \
     curl=7.58.0-2ubuntu3.13
 
-# Display the installed versions
-RUN python3 --version && \
-    node --version && \
-    curl --version
+# renovate: datasource=repology depName=ubuntu_22_04/python3-defaults versioning=loose
+ENV PYTHON3_VERSION="3.4.0"
 
-LABEL python_version="3.4.0"
+RUN apt-get update -y && \
+    apt-get install --no-install-recommends -y python3=${PYTHON3_VERSION}* && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+    
 # Set up your application here...
