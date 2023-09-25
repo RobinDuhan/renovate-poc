@@ -17,8 +17,6 @@
       "packageNames": ["*"],
       "automerge": false
     }
-  ]
-}
   ],
   "docker": {
     "enabled": true
